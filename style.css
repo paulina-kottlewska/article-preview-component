@@ -1,0 +1,243 @@
+:root {
+
+    /* Colors*/
+    --very-dark-grayish-blue: hsl(217, 19%, 35%);
+    --box-shadow: hsla(217, 19%, 35%, 0.2);
+    --desaturated-dark-blue: hsl(214, 17%, 51%);
+    --grayish-blue: hsl(212, 23%, 69%);
+    --light-grayish-blue: hsl(210, 46%, 95%);
+    --white: hsl(0, 0%, 100%);
+
+    /* Font sizes */
+    --title-size-mobile: 1rem;
+    --title-size-desktop: 1.2rem;
+
+    --text-size: 0.8em;
+    --small-print: 0.6rem;
+
+    /* Border radius */
+    --border-radius: 10px;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Manrope', sans-serif;
+    background-color: var(--light-grayish-blue);
+    display: grid;
+    place-content: center;
+}
+
+main {
+    width: 320px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 5px 12px var(--box-shadow);
+    background-color: var(--white);
+}
+
+.drawers {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.content {
+    padding: 1rem 2.1rem 0.2rem;
+}
+
+.title {
+    color: var(--very-dark-grayish-blue);
+    font-size: var(--title-size);
+    font-weight: 700;
+    line-height: 1.5rem;
+    margin-bottom: 0;
+}
+
+.text {
+    font-size: var(--text-size);
+    color: var(--desaturated-dark-blue);
+    line-height: 1.3rem;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    height: 65px;
+    padding: 0.1rem 2.1rem;
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+}
+
+.profile, .profile-share {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 0.2rem;
+}
+
+.user-share {
+    background-color: var(--very-dark-grayish-blue);
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.user-data {
+    font-size: var(--text-size);
+}
+
+.name {
+    margin: 0.1rem 0 0;
+    color: var(--very-dark-grayish-blue);
+    font-weight: 700;
+}
+
+.date {
+    margin: 0.1rem 0 0;
+    color: var(--grayish-blue);
+}
+
+.share-div {
+    margin-left: auto;
+    background-color: var(--light-grayish-blue);
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: grid;
+    place-content: center;
+}
+
+.share-icon {
+    padding-left: 0.1rem;
+    padding-bottom: 0.1rem;
+    width: 15px;
+    height: 14px;
+}
+
+.share {
+    color: var(--grayish-blue);
+    font-size: var(--text-size);
+    text-transform: uppercase;
+    letter-spacing: 0.3rem;
+    padding-top: 0.2rem;
+}
+
+a img {
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+    vertical-align: middle;
+}
+
+.share-active, .share-div:hover {
+    background-color: var(--desaturated-dark-blue);
+}
+
+.share-icon-active, .share-div:hover >.share-icon {
+    filter: brightness(0) saturate(100% )invert(100%) sepia(0%) saturate(7500%) hue-rotate(330deg) brightness(102%) contrast(101%);
+}
+
+.hidden, .desktop-active {
+    display: none;
+}
+
+.attribution { 
+    font-size: var(--small-print); 
+    text-align: center; 
+    margin-top: 1.8rem;
+}
+
+.attribution a { 
+    color: var(--very-dark-grayish-blue); 
+}
+
+@media (min-width: 800px) {
+    main {
+        width: 680px;
+        display: grid;
+        grid-template-columns: 260px 1fr;
+        position: relative;
+    }
+
+    .drawers {
+        height: 100%;
+        object-position: top left;
+        border-radius: var(--border-radius) 0 0 var(--border-radius);
+    }
+
+    .content {
+        padding: 0.7rem 2rem 0;
+    }
+
+    .title {
+        font-size: var(--title-size-desktop);
+    }
+
+    .text {
+        margin-bottom: 0.3rem;
+    }
+
+    .user {
+       padding: 0 2rem 1rem;
+    }
+
+    .user-share {
+        background-color: var(--white);
+    }
+
+    .profile-share {
+        width: 226px;
+        height: 50px;
+        gap: 0.9rem;
+        position: absolute;
+        top: 120px;
+        left: 518px;
+        background-color: var(--very-dark-grayish-blue);
+        border-radius: var(--border-radius);
+        box-shadow: 0 5px 8px var(--box-shadow);
+        padding: 0.1rem;
+    }
+
+    .profile-share::after,
+    .profile-share::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform-origin: 0 0;
+        width: 26px;
+        height: 26px;
+        transform: rotate(45deg);
+    }
+
+    .profile-share::after {
+        background-color: var(--very-dark-grayish-blue);
+        z-index: 1;
+    }
+
+    .profile-share::before {
+        width: 28px;
+        height: 28px;
+        box-shadow: 0 5px 8px var(--box-shadow);
+        z-index: 0;
+        left: calc(50%);
+    }
+
+    .desktop-active {
+        display: inline-flex;
+    }
+
+    .share {
+        margin-right: 0.4rem;
+    }
+
+    .facebook-icon, .twitter-icon, .pinterest-icon {
+        width: 17px;
+        position: relative;
+        z-index: 2;
+        padding-bottom: 0.1rem;
+    }
+}
